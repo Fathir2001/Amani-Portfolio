@@ -6,11 +6,15 @@ import { projects } from '../data/portfolioData'
 
 function DevicePreview({ project, large = false }) {
   return (
-    <div className={`relative ${large ? 'min-h-[520px]' : 'h-80'} overflow-hidden rounded-[1.75rem] bg-primary-dark p-5`}>
+    <div
+      className={`project-device motion-strip relative ${large ? 'min-h-[520px]' : 'h-80'} overflow-hidden rounded-[1.75rem] bg-primary-dark p-5`}
+      style={{ '--project-from': project.palette[0], '--project-to': project.palette[1] }}
+    >
       <div className="absolute inset-0 opacity-80" style={{ background: `linear-gradient(135deg, ${project.palette[0]}, ${project.palette[1]})` }} />
       <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(255,255,255,0.18),transparent_45%)]" />
+      <div className="project-device-grid" />
       <div className="relative h-full flex items-center justify-center">
-        <div className={`${large ? 'w-52 h-[410px]' : 'w-36 h-64'} rounded-[2rem] bg-white p-3 shadow-2xl rotate-[-5deg]`}>
+        <div className={`project-phone ${large ? 'w-52 h-[410px]' : 'w-36 h-64'} rounded-[2rem] bg-white p-3 shadow-2xl rotate-[-5deg]`}>
           <div className="h-full rounded-[1.5rem] bg-background-main overflow-hidden p-4">
             <div className="flex items-center justify-between mb-4">
               <span className="h-2 w-12 rounded-full" style={{ backgroundColor: project.palette[0] }} />
@@ -31,7 +35,7 @@ function DevicePreview({ project, large = false }) {
         </div>
 
         {large && (
-          <div className="absolute right-8 bottom-10 w-56 rounded-3xl bg-white/90 backdrop-blur p-5 shadow-glass">
+          <div className="project-impact absolute right-8 bottom-10 w-56 rounded-3xl bg-white/90 backdrop-blur p-5 shadow-glass">
             <p className="text-text-muted text-xs font-bold uppercase tracking-[0.16em] mb-3">Design Impact</p>
             <div className="space-y-3">
               {['Clear dashboard', 'Fast task flow', 'Friendly visual system'].map((item) => (
@@ -56,9 +60,9 @@ function CaseStudyDetails({ project }) {
   ]
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-3">
       {steps.map((step) => (
-        <div key={step.label} className="grid sm:grid-cols-[105px_1fr] gap-3 text-sm">
+        <div key={step.label} className="project-step grid sm:grid-cols-[105px_1fr] gap-3 text-sm">
           <span className="text-primary-purple font-bold flex items-center gap-2">
             {step.icon}
             {step.label}
@@ -77,7 +81,8 @@ function SupportingProject({ project, index }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
       transition={{ duration: 0.55, delay: index * 0.1 }}
-      className="bg-white rounded-[1.75rem] border border-border-soft p-4 shadow-card hover:shadow-card-hover transition-shadow"
+      className="project-card rounded-[1.75rem] p-4"
+      style={{ '--project-from': project.palette[0], '--project-to': project.palette[1] }}
     >
       <DevicePreview project={project} />
       <div className="p-3 pt-6">
@@ -88,7 +93,7 @@ function SupportingProject({ project, index }) {
             href={project.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-10 h-10 rounded-full bg-background-lavender text-primary-purple flex items-center justify-center hover:bg-primary-purple hover:text-white transition-colors flex-shrink-0"
+            className="project-link-btn w-10 h-10 rounded-full text-white flex items-center justify-center transition-colors flex-shrink-0"
             aria-label={`View ${project.title}`}
           >
             <FiArrowUpRight size={18} />
@@ -128,7 +133,8 @@ export default function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.7 }}
-          className="bg-white rounded-[2rem] border border-border-soft p-4 md:p-5 shadow-premium mb-8"
+          className="project-card featured-project-card motion-strip rounded-[2rem] p-4 md:p-5 mb-8"
+          style={{ '--project-from': featured.palette[0], '--project-to': featured.palette[1] }}
         >
           <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-7 items-stretch">
             <DevicePreview project={featured} large />
@@ -141,7 +147,7 @@ export default function Projects() {
               <div className="mt-auto pt-8 flex flex-wrap items-center justify-between gap-5">
                 <div className="flex gap-2">
                   {featured.palette.map((color) => (
-                    <span key={color} className="w-7 h-7 rounded-full border-2 border-white shadow-sm" style={{ backgroundColor: color }} />
+                    <span key={color} className="project-swatch w-7 h-7 rounded-full border-2 border-white shadow-sm" style={{ backgroundColor: color }} />
                   ))}
                 </div>
                 <a

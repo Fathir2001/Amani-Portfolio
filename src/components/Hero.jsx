@@ -13,6 +13,10 @@ export default function Hero() {
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden premium-grid">
       <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-white to-transparent" />
+      <div className="ambient-lines" />
+      <span className="floating-orbit hidden md:block left-[7%] top-[22%] h-16 w-16 rounded-[1.25rem]" />
+      <span className="floating-orbit hidden md:block right-[8%] top-[18%] h-24 w-24 rounded-full" style={{ animationDelay: '-2s' }} />
+      <span className="floating-orbit hidden lg:block left-[45%] bottom-[13%] h-20 w-20 rounded-[1.5rem]" style={{ animationDelay: '-4s' }} />
 
       <div className="max-w-6xl mx-auto px-5 pt-28 pb-12 md:pt-32 md:pb-16 w-full">
         <div className="grid lg:grid-cols-[0.95fr_1.05fr] gap-10 xl:gap-14 items-center">
@@ -82,7 +86,9 @@ export default function Hero() {
             transition={{ duration: 0.85, delay: 0.18, ease: 'easeOut' }}
             className="relative max-w-[560px] lg:max-w-none lg:justify-self-end"
           >
-            <div className="rounded-[2rem] bg-primary-dark p-3 md:p-4 shadow-premium">
+            <div className="motion-strip rounded-[2rem] bg-primary-dark p-3 md:p-4 shadow-premium relative overflow-hidden transition-all duration-500 ease-out hover:scale-[1.035] hover:shadow-[0_34px_110px_rgba(31,34,51,0.22)]">
+              <div className="absolute -right-20 -top-20 h-44 w-44 rounded-full bg-accent-cyan/25 blur-3xl" />
+              <div className="absolute -left-16 bottom-8 h-36 w-36 rounded-full bg-primary-purple/30 blur-3xl" />
               <div className="rounded-[1.5rem] bg-white overflow-hidden">
                 <div className="h-11 border-b border-border-soft flex items-center gap-2 px-5">
                   <span className="w-2.5 h-2.5 rounded-full bg-accent-rose" />
@@ -111,7 +117,9 @@ export default function Hero() {
                     </div>
                   </div>
 
-                  <div className="relative p-5 md:p-6 bg-[radial-gradient(circle_at_top_right,rgba(94,223,255,0.18),transparent_38%)]">
+                  <div className="relative p-5 md:p-6 bg-[radial-gradient(circle_at_top_right,rgba(94,223,255,0.26),transparent_38%),linear-gradient(135deg,rgba(139,92,246,0.06),transparent_42%)]">
+                    <div className="absolute left-6 top-20 h-28 w-28 rounded-full border border-primary-purple/15" />
+                    <div className="absolute right-10 bottom-10 h-32 w-32 rounded-[2rem] border border-accent-cyan/25 rotate-12" />
                     <div className="absolute right-5 top-5 flex gap-2">
                       <span className="rounded-full bg-primary-dark text-white text-[10px] font-bold uppercase tracking-[0.14em] px-3 py-1.5">Prototype</span>
                       <span className="rounded-full bg-background-lavender text-primary-purple text-[10px] font-bold uppercase tracking-[0.14em] px-3 py-1.5">UI Kit</span>

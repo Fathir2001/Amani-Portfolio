@@ -31,30 +31,30 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-28 md:py-32 bg-background-main relative overflow-hidden">
+    <section id="contact" className="py-28 md:py-32 designed-section relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-5">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="rounded-[2rem] bg-primary-dark text-white p-5 md:p-8 shadow-premium"
+          className="motion-strip rounded-[2rem] bg-primary-dark text-white p-5 md:p-7 shadow-premium"
         >
-          <div className="grid lg:grid-cols-[0.92fr_1.08fr] gap-6">
-            <div className="p-4 md:p-6 flex flex-col justify-between gap-10">
+          <div className="grid lg:grid-cols-[0.92fr_1.08fr] gap-6 items-stretch">
+            <div className="p-4 md:p-6 flex flex-col gap-7">
               <div>
                 <span className="text-accent-cyan text-xs font-bold uppercase tracking-[0.18em]">07 / Contact</span>
-                <h2 className="section-title text-white text-4xl md:text-6xl mt-4 leading-tight">
+                <h2 className="section-title text-white text-4xl md:text-5xl mt-4 leading-[1.02] max-w-md">
                   Let us design something clear and beautiful.
                 </h2>
-                <p className="text-white/68 text-lg leading-relaxed mt-6 max-w-lg">
+                <p className="text-white/72 text-base leading-relaxed mt-5 max-w-md">
                   Have a design idea, portfolio question, or collaboration in mind? Send a message and I will get back to you.
                 </p>
               </div>
 
               <div className="grid sm:grid-cols-3 lg:grid-cols-1 gap-3">
                 {contactItems.map((item) => (
-                  <div key={item.label} className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                  <div key={item.label} className="rounded-2xl border border-white/10 bg-white/5 p-3.5">
                     <div className="flex items-center gap-3 mb-2 text-accent-cyan">
                       {item.icon}
                       <p className="text-white/60 text-xs font-bold uppercase tracking-[0.14em]">{item.label}</p>
@@ -70,14 +70,14 @@ export default function Contact() {
                 ))}
               </div>
 
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-3 mt-auto">
                 {socialLinks.map((s) => (
                   <a
                     key={s.label}
                     href={s.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-white hover:bg-white hover:text-primary-dark transition-colors"
+                    className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3.5 py-2.5 text-sm font-semibold text-white hover:bg-white hover:text-primary-dark transition-colors"
                     aria-label={s.label}
                   >
                     {s.icon}
@@ -87,9 +87,9 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="bg-white text-text-body rounded-[1.5rem] p-6 md:p-8">
-              <h3 className="section-title text-3xl mb-6">Send a Message</h3>
-              <form onSubmit={handleSubmit} className="space-y-5">
+            <div className="bg-white text-text-body rounded-[1.5rem] p-6 md:p-7 h-full flex flex-col">
+              <h3 className="section-title text-3xl mb-5">Send a Message</h3>
+              <form onSubmit={handleSubmit} className="space-y-5 flex-1 flex flex-col">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-text-muted text-xs font-bold uppercase tracking-[0.14em] mb-2">Your Name</label>
@@ -116,16 +116,16 @@ export default function Contact() {
                     />
                   </div>
                 </div>
-                <div>
+                <div className="flex-1">
                   <label className="block text-text-muted text-xs font-bold uppercase tracking-[0.14em] mb-2">Message</label>
                   <textarea
                     name="message"
                     value={form.message}
                     onChange={handleChange}
                     required
-                    rows={7}
+                    rows={6}
                     placeholder="Tell me about your project..."
-                    className="premium-input resize-none"
+                    className="premium-input resize-none h-full min-h-[145px]"
                   />
                 </div>
                 <motion.button

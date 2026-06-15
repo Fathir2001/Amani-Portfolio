@@ -4,7 +4,7 @@ import { education } from '../data/portfolioData'
 
 export default function Education() {
   return (
-    <section id="education" className="py-28 bg-background-main relative overflow-hidden">
+    <section id="education" className="py-28 designed-section relative overflow-hidden">
       <div className="max-w-5xl mx-auto px-5">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -21,7 +21,7 @@ export default function Education() {
           </p>
         </motion.div>
 
-        <div className="grid gap-4">
+        <div className="education-list relative grid gap-5">
           {education.map((item, i) => (
             <motion.article
               key={item.degree}
@@ -29,15 +29,16 @@ export default function Education() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="bg-white border border-border-soft rounded-[1.5rem] p-6 md:p-7 shadow-card grid md:grid-cols-[150px_1fr] gap-5"
+              className="education-card corner-accent rounded-[1.5rem] p-6 md:p-7 grid md:grid-cols-[170px_1fr] gap-5"
             >
               <div>
-                <span className="inline-flex items-center gap-2 text-primary-purple text-xs font-bold uppercase tracking-[0.14em]">
-                  <MdSchool size={16} />
-                  {item.year}
-                </span>
+                <div className="education-year">
+                  <MdSchool size={18} />
+                  <span>{item.year}</span>
+                </div>
               </div>
               <div>
+                <span className="education-index">0{i + 1}</span>
                 <h3 className="section-title text-2xl leading-snug mb-2">{item.degree}</h3>
                 {item.field && <p className="text-primary-purple text-sm font-semibold mb-1">{item.field}</p>}
                 <p className="text-text-muted text-sm font-semibold mb-3">{item.institution}</p>

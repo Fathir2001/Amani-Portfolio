@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { MdPalette, MdCampaign, MdPeople, MdLeaderboard, MdAutoAwesome } from 'react-icons/md'
+import { MdPalette, MdCampaign, MdPeople, MdLeaderboard, MdAutoAwesome, MdStorefront } from 'react-icons/md'
 import { SiInstagram } from 'react-icons/si'
 
 const highlights = [
@@ -13,16 +13,21 @@ const highlights = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-28 bg-background-main relative overflow-hidden">
+    <section id="experience" className="py-28 designed-section relative overflow-hidden">
       <div className="max-w-5xl mx-auto px-5">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="section-heading mb-14"
         >
-          <span className="section-label">Entrepreneurship</span>
-          <h2 className="section-title text-4xl md:text-5xl mt-3">Experience</h2>
+          <div>
+            <span className="section-kicker">07 / Entrepreneurship</span>
+            <h2 className="section-title text-4xl md:text-5xl mt-3">Experience</h2>
+          </div>
+          <p className="section-subtitle text-base max-w-md">
+            A creative business role that connects product design, branding, social media, and customer experience.
+          </p>
         </motion.div>
 
         <motion.div
@@ -30,11 +35,12 @@ export default function Experience() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="bg-white rounded-[1.75rem] border border-border-soft p-8 md:p-10 shadow-card"
+          className="experience-card motion-strip rounded-[1.75rem] p-6 md:p-8"
         >
-          <div className="grid md:grid-cols-[1fr_auto] gap-6 items-start mb-8">
+          <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-8 items-stretch">
             <div>
-              <span className="section-label inline-flex items-center gap-2 bg-background-lavender px-4 py-2 rounded-xl mb-4 border border-border-soft">
+              <span className="experience-badge inline-flex items-center gap-2 px-4 py-2 rounded-xl mb-4">
+                <MdStorefront size={16} />
                 Founder and Creative Designer
               </span>
               <h3 className="section-title text-2xl md:text-3xl mb-2">Magic Craft Gallery</h3>
@@ -43,31 +49,43 @@ export default function Experience() {
                 <span>/</span>
                 <span>Nov 2023 - Present</span>
               </p>
-            </div>
-            <div className="flex items-center justify-center w-16 h-16 rounded-2xl shadow-card flex-shrink-0"
-              style={{ background: 'var(--gradient-button)' }}>
-              <MdAutoAwesome size={28} className="text-white" />
-            </div>
-          </div>
 
-          <p className="text-text-body leading-relaxed mb-8 text-base md:text-lg">
-            Successfully manages an online handmade craft business specializing in customized gifts and decor products. Responsible for product design, branding, social media management, and customer engagement, demonstrating creativity, leadership, and entrepreneurial skills.
-          </p>
+              <p className="text-text-body leading-relaxed mt-6 text-base md:text-lg">
+                Successfully manages an online handmade craft business specializing in customized gifts and decor products. Responsible for product design, branding, social media management, and customer engagement, demonstrating creativity, leadership, and entrepreneurial skills.
+              </p>
 
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-            {highlights.map((h) => (
-              <motion.div
-                key={h.label}
-                whileHover={{ y: -4 }}
-                className="flex items-start gap-3 bg-background-lavender rounded-2xl px-4 py-3.5 group transition-colors hover:bg-border-soft duration-200"
-              >
-                <span className="text-primary-purple mt-0.5 group-hover:scale-110 transition-transform duration-200 flex-shrink-0">{h.icon}</span>
-                <div>
-                  <p className="text-text-heading text-sm font-semibold">{h.label}</p>
-                  <p className="text-text-muted text-xs mt-0.5">{h.desc}</p>
-                </div>
-              </motion.div>
-            ))}
+              <div className="experience-metric-row mt-7 grid grid-cols-3 gap-3">
+                {['Brand', 'Design', 'Growth'].map((item, index) => (
+                  <div key={item} className="rounded-2xl p-4">
+                    <span className="text-primary-purple text-xs font-bold">0{index + 1}</span>
+                    <p className="text-text-heading text-sm font-bold mt-1">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="experience-visual rounded-[1.5rem] p-5">
+              <div className="experience-orb">
+                <MdAutoAwesome size={30} />
+              </div>
+              <div className="grid sm:grid-cols-2 gap-3 relative z-10">
+                {highlights.map((h, index) => (
+                  <motion.div
+                    key={h.label}
+                    whileHover={{ y: -6, scale: 1.02 }}
+                    transition={{ duration: 0.2 }}
+                    className="experience-mini-card flex items-start gap-3 rounded-2xl px-4 py-3.5 group"
+                    style={{ animationDelay: `${index * 0.18}s` }}
+                  >
+                    <span className="experience-mini-icon mt-0.5 flex-shrink-0">{h.icon}</span>
+                    <div>
+                      <p className="text-text-heading text-sm font-semibold">{h.label}</p>
+                      <p className="text-text-muted text-xs mt-0.5">{h.desc}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>

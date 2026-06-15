@@ -2,6 +2,15 @@ import { motion } from 'framer-motion'
 import { MdVerified } from 'react-icons/md'
 import { certificates } from '../data/portfolioData'
 
+const credentialAccents = [
+  ['#8B5CF6', '#FF7DAA'],
+  ['#FF7DAA', '#D6A756'],
+  ['#2F6F99', '#5EDFFF'],
+  ['#1F2233', '#8B5CF6'],
+  ['#5EDFFF', '#8B5CF6'],
+  ['#D6A756', '#FF7DAA'],
+]
+
 export default function Certificates() {
   return (
     <section id="certificates" className="section-band py-28 relative overflow-hidden">
@@ -21,7 +30,7 @@ export default function Certificates() {
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="credential-grid grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {certificates.map((cert, i) => (
             <motion.article
               key={cert.name + cert.issuer}
@@ -29,16 +38,20 @@ export default function Certificates() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.45, delay: i * 0.06 }}
-              className="bg-white rounded-2xl border border-border-soft p-6 shadow-card hover:shadow-card-hover transition-shadow"
+              whileHover={{ y: -9, rotate: i % 2 === 0 ? -0.5 : 0.5 }}
+              className="credential-card corner-accent rounded-2xl p-6"
+              style={{ '--cert-from': credentialAccents[i][0], '--cert-to': credentialAccents[i][1] }}
             >
               <div className="flex items-start justify-between gap-4 mb-7">
-                <span className="w-11 h-11 rounded-xl bg-primary-dark text-white flex items-center justify-center">
+                <span className="credential-seal w-12 h-12 rounded-xl text-white flex items-center justify-center">
                   <MdVerified size={19} />
                 </span>
-                <span className="text-primary-purple text-xs font-bold uppercase tracking-[0.14em]">{cert.date}</span>
+                <span className="credential-date text-xs font-bold uppercase tracking-[0.14em]">{cert.date}</span>
               </div>
+              <span className="credential-number">{String(i + 1).padStart(2, '0')}</span>
               <h3 className="text-text-heading font-bold leading-snug mb-2">{cert.name}</h3>
               <p className="text-text-muted text-sm">{cert.issuer}</p>
+              <div className="credential-ribbon mt-6" />
             </motion.article>
           ))}
         </div>

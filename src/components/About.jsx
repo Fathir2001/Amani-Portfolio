@@ -2,15 +2,22 @@ import { motion } from 'framer-motion'
 import { MdAutoAwesome, MdPalette, MdSchool, MdStorefront } from 'react-icons/md'
 
 const highlights = [
-  { icon: <MdAutoAwesome size={20} />, label: 'Creative Designer', text: 'Refined visuals with user-friendly structure.' },
-  { icon: <MdPalette size={20} />, label: 'UI/UX Learner', text: 'Growing through hands-on case studies.' },
-  { icon: <MdSchool size={20} />, label: 'IT Undergraduate', text: 'Studying technology and digital systems.' },
-  { icon: <MdStorefront size={20} />, label: 'Founder', text: 'Running a craft brand with design ownership.' },
+  { icon: <MdAutoAwesome size={20} />, label: 'Creative Designer', text: 'Refined visuals with user-friendly structure.', meta: 'Visual craft' },
+  { icon: <MdPalette size={20} />, label: 'UI/UX Learner', text: 'Growing through hands-on case studies.', meta: 'User flows' },
+  { icon: <MdSchool size={20} />, label: 'IT Undergraduate', text: 'Studying technology and digital systems.', meta: 'BSc IT' },
+  { icon: <MdStorefront size={20} />, label: 'Founder', text: 'Running a craft brand with design ownership.', meta: 'Brand owner' },
+]
+
+const stats = [
+  { label: 'Availability', value: 'Open' },
+  { label: 'Focus', value: 'UI/UX' },
+  { label: 'Education', value: 'BSc IT' },
+  { label: 'Tools', value: 'Figma' },
 ]
 
 export default function About() {
   return (
-    <section id="about" className="py-20 md:py-24 bg-background-main relative overflow-hidden">
+    <section id="about" className="py-20 md:py-24 designed-section relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-5">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -30,12 +37,16 @@ export default function About() {
           </div>
 
           <div className="space-y-5">
-            <div className="premium-panel p-6 md:p-7">
+            <div className="about-profile-card motion-strip p-6 md:p-7">
               <div className="grid md:grid-cols-[auto_1fr] gap-6 items-start">
-                <div className="w-24 h-24 rounded-[1.5rem] bg-primary-dark text-white flex items-center justify-center shadow-premium">
+                <div className="about-avatar">
                   <span className="font-display text-4xl font-bold">A</span>
+                  <span className="about-avatar-ring" />
                 </div>
                 <div>
+                  <span className="inline-flex items-center gap-2 rounded-full bg-background-lavender px-3 py-1 text-primary-purple text-xs font-bold uppercase tracking-[0.14em] mb-4">
+                    Designer Profile
+                  </span>
                   <p className="text-text-body text-lg leading-relaxed">
                     Creative and detail-oriented UI/UX Designer passionate about creating user-friendly and visually appealing digital experiences. Currently pursuing a BSc in Information Technology while building skills in research, wireframing, prototyping, and responsive design.
                   </p>
@@ -54,25 +65,21 @@ export default function About() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.45, delay: index * 0.07 }}
-                  className="bg-white rounded-2xl border border-border-soft p-4 shadow-card"
+                  className="about-highlight-card corner-accent rounded-2xl p-4"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-background-lavender text-primary-purple flex items-center justify-center mb-3">
+                  <div className="about-highlight-icon w-10 h-10 rounded-xl text-white flex items-center justify-center mb-3">
                     {item.icon}
                   </div>
+                  <span className="text-primary-purple text-[10px] font-bold uppercase tracking-[0.16em]">{item.meta}</span>
                   <h3 className="text-text-heading font-bold mb-1">{item.label}</h3>
                   <p className="text-text-muted text-sm leading-relaxed">{item.text}</p>
                 </motion.div>
               ))}
             </div>
 
-            <div className="grid sm:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-border-soft border border-border-soft rounded-[1.5rem] overflow-hidden bg-white">
-              {[
-                { label: 'Availability', value: 'Open' },
-                { label: 'Focus', value: 'UI/UX' },
-                { label: 'Education', value: 'BSc IT' },
-                { label: 'Tools', value: 'Figma' },
-              ].map((item) => (
-                <div key={item.label} className="p-4">
+            <div className="about-stat-strip grid sm:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-border-soft rounded-[1.5rem] overflow-hidden">
+              {stats.map((item) => (
+                <div key={item.label} className="about-stat-item p-4">
                   <p className="text-text-muted text-xs font-bold uppercase tracking-[0.14em]">{item.label}</p>
                   <p className="section-title text-xl md:text-2xl mt-1">{item.value}</p>
                 </div>
