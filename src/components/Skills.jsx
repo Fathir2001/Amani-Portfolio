@@ -1,54 +1,61 @@
-import { useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { motion } from 'framer-motion'
 import {
   MdOutlineDesignServices, MdOutlineAccountTree, MdDraw,
-  MdDevices, MdPhoneIphone,
+  MdDevices, MdPhoneIphone, MdOutlineBrush,
 } from 'react-icons/md'
 import { SiFigma, SiCanva, SiHtml5 } from 'react-icons/si'
-import { MdOutlineBrush } from 'react-icons/md'
-
-const skillIcons = {
-  MdOutlineDesignServices: <MdOutlineDesignServices size={20} />,
-  MdOutlineAccountTree: <MdOutlineAccountTree size={20} />,
-  MdDraw: <MdDraw size={20} />,
-  MdDevices: <MdDevices size={20} />,
-  MdPhoneIphone: <MdPhoneIphone size={20} />,
-  SiFigma: <SiFigma size={20} />,
-  SiAdobexd: <MdOutlineBrush size={20} />,
-  SiCanva: <SiCanva size={20} />,
-  SiHtml5: <SiHtml5 size={20} />,
-}
-
 import { skills } from '../data/portfolioData'
 
-function SkillBar({ skill, index }) {
-  const ref = useRef(null)
-  const inView = useInView(ref, { once: true, margin: '-40px' })
+const skillIcons = {
+  MdOutlineDesignServices: <MdOutlineDesignServices size={22} />,
+  MdOutlineAccountTree: <MdOutlineAccountTree size={22} />,
+  MdDraw: <MdDraw size={22} />,
+  MdDevices: <MdDevices size={22} />,
+  MdPhoneIphone: <MdPhoneIphone size={22} />,
+  SiFigma: <SiFigma size={22} />,
+  SiAdobexd: <MdOutlineBrush size={22} />,
+  SiCanva: <SiCanva size={22} />,
+  SiHtml5: <SiHtml5 size={22} />,
+}
 
+const notes = [
+  'Clean screens, spacing systems, and accessible visual hierarchy.',
+  'Research notes, journey mapping, and structure before decoration.',
+  'Low-fidelity flows that make ideas easy to test and improve.',
+  'Layouts that stay useful across phone, tablet, and desktop.',
+  'Mobile-first thinking for everyday product interactions.',
+  'Components, variants, auto layout, and clickable prototypes.',
+  'Fast concepting and UI exploration for early design ideas.',
+  'Social visuals, presentation polish, and brand-friendly graphics.',
+  'Front-end basics that help designs translate into real pages.',
+]
+
+function SkillTile({ skill, index }) {
   return (
     <motion.div
-      ref={ref}
-      initial={{ opacity: 0, x: -20 }}
-      animate={inView ? { opacity: 1, x: 0 } : {}}
-      transition={{ duration: 0.5, delay: index * 0.08 }}
-      className="glass-card rounded-2xl p-5 hover:shadow-glass-hover transition-shadow duration-300 group"
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-40px' }}
+      transition={{ duration: 0.5, delay: index * 0.06 }}
+      className="group relative min-h-[190px] rounded-2xl bg-white border border-border-soft p-5 shadow-card overflow-hidden hover:-translate-y-1 hover:shadow-card-hover transition-all duration-300"
     >
-      <div className="flex items-center justify-between mb-3">
-        <div className="flex items-center gap-3">
-          <span className="text-primary-purple group-hover:scale-110 transition-transform duration-200">
-            {skillIcons[skill.icon]}
-          </span>
-          <span className="text-text-heading font-medium text-sm">{skill.name}</span>
+      <span className="absolute right-5 top-5 text-5xl font-display font-bold text-primary-purple/5">
+        {String(index + 1).padStart(2, '0')}
+      </span>
+      <div className="relative z-10">
+        <div className="w-12 h-12 rounded-2xl bg-background-lavender text-primary-purple flex items-center justify-center mb-5 group-hover:bg-primary-purple group-hover:text-white transition-colors">
+          {skillIcons[skill.icon]}
         </div>
-        <span className="text-primary-purple text-sm font-semibold">{skill.level}%</span>
+        <h3 className="text-text-heading font-semibold leading-snug mb-3">{skill.name}</h3>
+        <p className="text-text-muted text-sm leading-relaxed">{notes[index]}</p>
       </div>
-      {/* Bar */}
-      <div className="h-1.5 rounded-full bg-border-soft overflow-hidden">
-        <motion.div
+      <div className="absolute left-5 right-5 bottom-5 h-1.5 rounded-full bg-background-lavender overflow-hidden">
+        <motion.span
           initial={{ width: 0 }}
-          animate={inView ? { width: `${skill.level}%` } : {}}
-          transition={{ duration: 1, delay: 0.3 + index * 0.08, ease: 'easeOut' }}
-          className="h-full rounded-full"
+          whileInView={{ width: `${skill.level}%` }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.9, delay: 0.2 + index * 0.04 }}
+          className="block h-full rounded-full"
           style={{ background: 'var(--gradient-button)' }}
         />
       </div>
@@ -57,51 +64,50 @@ function SkillBar({ skill, index }) {
 }
 
 export default function Skills() {
-  const ref = useRef(null)
-  const inView = useInView(ref, { once: true })
-
   return (
     <section id="skills" className="py-28 bg-background-main relative overflow-hidden">
-      <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full opacity-10 pointer-events-none"
-        style={{ background: 'radial-gradient(circle, #FF7DAA 0%, transparent 70%)', transform: 'translate(-30%, 30%)' }} />
-
       <div className="max-w-6xl mx-auto px-5">
         <motion.div
-          ref={ref}
           initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="grid lg:grid-cols-[0.8fr_1.2fr] gap-10 items-end mb-14"
         >
-          <span className="section-label">✦ What I Do</span>
-          <h2 className="section-title text-4xl md:text-5xl mt-3">Skills & Expertise</h2>
-          <p className="section-subtitle mt-4 max-w-xl mx-auto text-base">
-            A growing toolkit of design skills refined through hands-on projects and dedicated learning.
+          <div>
+            <span className="section-label">Design Toolkit</span>
+            <h2 className="section-title text-4xl md:text-5xl mt-3">Tools and skills with purpose.</h2>
+          </div>
+          <p className="section-subtitle text-base max-w-2xl lg:ml-auto">
+            These are the capabilities I use to move from messy ideas to usable interfaces: research, structure, visual design, prototyping, and responsive implementation awareness.
           </p>
         </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {skills.map((skill, i) => (
-            <SkillBar key={skill.name} skill={skill} index={i} />
+            <SkillTile key={skill.name} skill={skill} index={i} />
           ))}
         </div>
 
-        {/* Pill badges row */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-12 flex flex-wrap justify-center gap-3"
+          transition={{ duration: 0.6, delay: 0.35 }}
+          className="mt-12 rounded-[1.75rem] bg-primary-dark text-white p-6 md:p-8 grid md:grid-cols-[0.8fr_1.2fr] gap-6 items-center"
         >
-          {['User Research', 'Information Architecture', 'Interaction Design', 'Design Thinking', 'Visual Design', 'Usability Testing'].map((tag) => (
-            <span
-              key={tag}
-              className="px-4 py-2 rounded-full text-sm font-medium border border-border-soft text-text-body bg-background-card hover:border-primary-purple hover:text-primary-purple transition-colors duration-200"
-            >
-              {tag}
-            </span>
-          ))}
+          <div>
+            <p className="text-accent-cyan text-xs font-bold uppercase tracking-[0.18em] mb-3">Workflow</p>
+            <h3 className="section-title text-3xl text-white">Research to prototype</h3>
+          </div>
+          <div className="grid sm:grid-cols-3 gap-3">
+            {['Understand users', 'Structure flows', 'Polish interfaces'].map((item, i) => (
+              <div key={item} className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <span className="text-accent-cyan text-xs font-bold">0{i + 1}</span>
+                <p className="mt-2 text-sm font-semibold">{item}</p>
+              </div>
+            ))}
+          </div>
         </motion.div>
       </div>
     </section>

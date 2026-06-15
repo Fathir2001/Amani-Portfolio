@@ -3,20 +3,17 @@ import { MdPalette, MdCampaign, MdPeople, MdLeaderboard, MdAutoAwesome } from 'r
 import { SiInstagram } from 'react-icons/si'
 
 const highlights = [
-  { icon: <MdPalette size={18} />, label: 'Product Design', desc: 'Handmade crafts & custom gifts' },
-  { icon: <MdAutoAwesome size={18} />, label: 'Branding', desc: 'Visual identity & packaging' },
-  { icon: <SiInstagram size={16} />, label: 'Social Media', desc: 'Content creation & growth' },
-  { icon: <MdPeople size={18} />, label: 'Customer Engagement', desc: 'Relationships & satisfaction' },
+  { icon: <MdPalette size={18} />, label: 'Product Design', desc: 'Handmade crafts and custom gifts' },
+  { icon: <MdAutoAwesome size={18} />, label: 'Branding', desc: 'Visual identity and packaging' },
+  { icon: <SiInstagram size={16} />, label: 'Social Media', desc: 'Content creation and growth' },
+  { icon: <MdPeople size={18} />, label: 'Customer Engagement', desc: 'Relationships and satisfaction' },
   { icon: <MdLeaderboard size={18} />, label: 'Leadership', desc: 'Managing operations solo' },
-  { icon: <MdCampaign size={18} />, label: 'Marketing', desc: 'Online promotions & reach' },
+  { icon: <MdCampaign size={18} />, label: 'Marketing', desc: 'Online promotions and reach' },
 ]
 
 export default function Experience() {
   return (
     <section id="experience" className="py-28 bg-background-main relative overflow-hidden">
-      <div className="absolute top-1/2 right-0 w-80 h-80 rounded-full opacity-10 pointer-events-none"
-        style={{ background: 'radial-gradient(circle, #FF7DAA 0%, transparent 70%)', transform: 'translate(40%, -50%)' }} />
-
       <div className="max-w-5xl mx-auto px-5">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -24,7 +21,7 @@ export default function Experience() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="section-label">✦ Entrepreneurship</span>
+          <span className="section-label">Entrepreneurship</span>
           <h2 className="section-title text-4xl md:text-5xl mt-3">Experience</h2>
         </motion.div>
 
@@ -33,19 +30,18 @@ export default function Experience() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="glass-card rounded-3xl p-8 md:p-10"
+          className="bg-white rounded-[1.75rem] border border-border-soft p-8 md:p-10 shadow-card"
         >
           <div className="grid md:grid-cols-[1fr_auto] gap-6 items-start mb-8">
             <div>
-              {/* Role badge */}
-              <span className="section-label inline-flex items-center gap-2 bg-background-lavender px-4 py-2 rounded-full mb-4 border border-border-soft">
-                ✦ Founder & Creative Designer
+              <span className="section-label inline-flex items-center gap-2 bg-background-lavender px-4 py-2 rounded-xl mb-4 border border-border-soft">
+                Founder and Creative Designer
               </span>
               <h3 className="section-title text-2xl md:text-3xl mb-2">Magic Craft Gallery</h3>
-              <p className="text-text-muted text-sm flex items-center gap-4">
-                <span>📍 Tharayaya, Kurunegala</span>
-                <span>·</span>
-                <span>Nov 2023 – Present</span>
+              <p className="text-text-muted text-sm flex flex-wrap items-center gap-3">
+                <span>Tharayaya, Kurunegala</span>
+                <span>/</span>
+                <span>Nov 2023 - Present</span>
               </p>
             </div>
             <div className="flex items-center justify-center w-16 h-16 rounded-2xl shadow-card flex-shrink-0"
@@ -55,7 +51,7 @@ export default function Experience() {
           </div>
 
           <p className="text-text-body leading-relaxed mb-8 text-base md:text-lg">
-            Successfully manages an online handmade craft business specializing in customized gifts and décor products. Responsible for product design, branding, social media management, and customer engagement — demonstrating creativity, leadership, and entrepreneurial skills.
+            Successfully manages an online handmade craft business specializing in customized gifts and decor products. Responsible for product design, branding, social media management, and customer engagement, demonstrating creativity, leadership, and entrepreneurial skills.
           </p>
 
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">

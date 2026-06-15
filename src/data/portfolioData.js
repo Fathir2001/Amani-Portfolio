@@ -26,6 +26,10 @@ export const projects = [
     category: 'Mobile App Design',
     description:
       'A modern fitness tracking mobile app concept focused on clean UI, activity tracking, and user-friendly health progress visualization.',
+    problem: 'Help active users understand habits, goals, and progress without a crowded dashboard.',
+    process: 'Mapped daily activity cards, simple goal states, and high-contrast health data moments.',
+    outcome: 'A motivating mobile flow with quick stats, visual milestones, and friendly progress feedback.',
+    palette: ['#6D5DF6', '#30D5C8', '#111827'],
     link: 'https://www.behance.net/gallery/249366119/Modern-Fitness-Tracker-App',
     gradient: 'from-purple-400 via-primary-purple to-accent-rose',
     accent: '#8B5CF6',
@@ -35,6 +39,10 @@ export const projects = [
     category: 'Mobile App Design',
     description:
       'A stylish food ordering app concept designed for simple product browsing, smooth ordering flow, and attractive food presentation.',
+    problem: 'Make ordering feel fast, visual, and easy for hungry users browsing on mobile.',
+    process: 'Designed menu cards, add-to-cart states, and a checkout path with fewer decisions.',
+    outcome: 'A warm ordering experience that highlights food photography, totals, and delivery clarity.',
+    palette: ['#FF6B4A', '#FFD166', '#2B1B18'],
     link: 'https://www.behance.net/gallery/250393374/Pizza-Order-App',
     gradient: 'from-accent-rose via-primary-pink to-accent-gold',
     accent: '#FF7DAA',
@@ -44,6 +52,10 @@ export const projects = [
     category: 'Landing Page Design',
     description:
       'A modern travel agency landing page concept created to promote destinations, improve visual engagement, and guide users toward booking actions.',
+    problem: 'Inspire visitors while still making destination discovery and booking actions obvious.',
+    process: 'Built a visual hierarchy around hero destinations, cards, trust signals, and quick filters.',
+    outcome: 'A fresh landing page concept that balances inspiration with clear conversion points.',
+    palette: ['#2563EB', '#5EDFFF', '#F8FAFC'],
     link: 'https://www.behance.net/gallery/249283299/Travel-Agency-Landing-Page',
     gradient: 'from-primary-navy via-accent-cyan to-primary-purple',
     accent: '#2F6F99',

@@ -26,7 +26,7 @@
   --color-border-soft: #E8DFF5;
   --color-border-card: rgba(255, 255, 255, 0.35);
 
-  --gradient-hero: linear-gradient(135deg, #FFF9FB 0%, #F5F1FF 45%, #FFE4EC 100%);
+  --gradient-hero: linear-gradient(135deg, #FFF9FB 0%, #F8FBFF 42%, #F5F1FF 100%);
   --gradient-button: linear-gradient(135deg, #8B5CF6 0%, #FF7DAA 100%);
   --gradient-card: linear-gradient(145deg, rgba(255,255,255,0.85), rgba(245,241,255,0.65));
 }
@@ -49,6 +49,25 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+.hero-grid {
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.72)),
+    linear-gradient(90deg, rgba(139, 92, 246, 0.08) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(47, 111, 153, 0.08) 1px, transparent 1px),
+    var(--gradient-hero);
+  background-size: auto, 44px 44px, 44px 44px, auto;
+}
+
+.project-stage::after {
+  content: '';
+  position: absolute;
+  inset: auto 18% 0;
+  height: 42px;
+  background: rgba(31, 34, 51, 0.18);
+  filter: blur(20px);
+  border-radius: 999px;
+}
+
 @layer components {
   .section-bg {
     background: var(--gradient-hero);
@@ -65,10 +84,11 @@ body {
   .primary-btn {
     background: var(--gradient-button);
     color: white;
-    border-radius: 999px;
+    border-radius: 14px;
     transition: all 0.3s ease;
     font-family: 'DM Sans', sans-serif;
     font-weight: 500;
+    box-shadow: 0 12px 28px rgba(139, 92, 246, 0.22);
   }
 
   .primary-btn:hover {
@@ -79,7 +99,7 @@ body {
   .outline-btn {
     border: 1.5px solid var(--color-primary-purple);
     color: var(--color-primary-purple);
-    border-radius: 999px;
+    border-radius: 14px;
     transition: all 0.3s ease;
     font-family: 'DM Sans', sans-serif;
     font-weight: 500;
@@ -98,7 +118,7 @@ body {
     font-family: 'Playfair Display', Georgia, serif;
     color: var(--color-text-heading);
     font-weight: 700;
-    letter-spacing: -0.03em;
+    letter-spacing: 0;
   }
 
   .section-subtitle {

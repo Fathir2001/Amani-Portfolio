@@ -14,6 +14,23 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  useEffect(() => {
+    const sections = navLinks
+      .map((link) => document.querySelector(link.href))
+      .filter(Boolean)
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.find((entry) => entry.isIntersecting)
+        if (visible) setActive(visible.target.id)
+      },
+      { rootMargin: '-35% 0px -55% 0px', threshold: 0.01 }
+    )
+
+    sections.forEach((section) => observer.observe(section))
+    return () => observer.disconnect()
+  }, [])
+
   const handleNav = (href) => {
     setMenuOpen(false)
     setActive(href.replace('#', ''))
@@ -67,10 +84,12 @@ export default function Navbar() {
 
         {/* CTA */}
         <a
-          href="mailto:amanidulfi@gmail.com"
+          href="https://behance.net/amanidulfi"
+          target="_blank"
+          rel="noopener noreferrer"
           className="hidden md:inline-flex primary-btn px-5 py-2 text-sm"
         >
-          Hire Me ✦
+          Behance
         </a>
 
         {/* Mobile menu toggle */}
@@ -104,10 +123,12 @@ export default function Navbar() {
                 </button>
               ))}
               <a
-                href="mailto:amanidulfi@gmail.com"
+                href="https://behance.net/amanidulfi"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="primary-btn px-5 py-3 text-sm text-center mt-2"
               >
-                Hire Me ✦
+                View Behance
               </a>
             </nav>
           </motion.div>

@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { languages } from '../data/portfolioData'
 
-const flags = { English: '🇬🇧', Sinhala: '🇱🇰', Tamil: '🇮🇳', Arabic: '🇸🇦' }
+const initials = { English: 'EN', Sinhala: 'SI', Tamil: 'TA', Arabic: 'AR' }
 const levelColors = {
   Professional: 'text-primary-purple bg-background-lavender',
   Fluent: 'text-primary-navy bg-blue-50',
@@ -19,7 +19,7 @@ export default function Languages() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <span className="section-label">✦ Communication</span>
+          <span className="section-label">Communication</span>
           <h2 className="section-title text-3xl md:text-4xl mt-3">Languages</h2>
         </motion.div>
 
@@ -32,14 +32,15 @@ export default function Languages() {
               viewport={{ once: true }}
               transition={{ duration: 0.45, delay: i * 0.1 }}
               whileHover={{ y: -5, transition: { duration: 0.2 } }}
-              className="glass-card rounded-2xl p-5 text-center hover:shadow-glass-hover transition-shadow duration-300 group"
+              className="bg-white rounded-2xl border border-border-soft p-5 text-center hover:shadow-card-hover transition-shadow duration-300 group"
             >
-              <div className="text-4xl mb-3">{flags[lang.name]}</div>
+              <div className="mx-auto w-14 h-14 rounded-2xl bg-primary-dark text-white flex items-center justify-center font-bold mb-4 group-hover:bg-primary-purple transition-colors">
+                {initials[lang.name]}
+              </div>
               <h3 className="text-text-heading font-semibold text-base mb-1">{lang.name}</h3>
               <span className={`inline-block text-xs font-semibold px-3 py-1 rounded-full ${levelColors[lang.level]}`}>
                 {lang.level}
               </span>
-              {/* Progress arc */}
               <div className="mt-4 h-1.5 rounded-full bg-border-soft overflow-hidden">
                 <motion.div
                   initial={{ width: 0 }}
