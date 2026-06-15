@@ -44,7 +44,7 @@ export default function Navbar() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.7, ease: 'easeOut' }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'nav-glass shadow-md py-3' : 'bg-transparent py-5'
+        scrolled ? 'nav-glass shadow-md py-3' : 'bg-primary-dark/12 backdrop-blur-md py-5'
       }`}
     >
       <div className="max-w-6xl mx-auto px-5 flex items-center justify-between">
@@ -56,7 +56,7 @@ export default function Navbar() {
           <span className="w-8 h-8 rounded-full bg-gradient-button flex items-center justify-center text-white text-sm font-bold shadow-md">
             A
           </span>
-          <span className="section-title text-xl tracking-tight">Amani</span>
+          <span className={`section-title text-xl tracking-tight ${scrolled ? 'text-text-heading' : 'text-white'}`}>Amani</span>
         </button>
 
         {/* Desktop Nav */}
@@ -68,7 +68,9 @@ export default function Navbar() {
               className={`relative px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 ${
                 active === link.href.replace('#', '')
                   ? 'text-primary-purple bg-background-lavender'
-                  : 'text-text-body hover:text-primary-purple hover:bg-background-lavender'
+                  : scrolled
+                    ? 'text-text-body hover:text-primary-purple hover:bg-background-lavender'
+                    : 'text-white/90 hover:text-white hover:bg-white/14'
               }`}
             >
               {link.label}
@@ -94,7 +96,7 @@ export default function Navbar() {
 
         {/* Mobile menu toggle */}
         <button
-          className="md:hidden text-text-heading p-2 rounded-xl hover:bg-background-lavender transition"
+          className={`md:hidden p-2 rounded-xl transition ${scrolled ? 'text-text-heading hover:bg-background-lavender' : 'text-white hover:bg-white/14'}`}
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
