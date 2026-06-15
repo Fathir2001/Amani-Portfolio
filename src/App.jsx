@@ -9,11 +9,13 @@ import Experience from './components/Experience'
 import Languages from './components/Languages'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import SectionIndex from './components/SectionIndex'
 
 export default function App() {
   return (
     <div className="min-h-screen font-body">
       <Navbar />
+      <SectionIndex />
       <main>
         <Hero />
         <About />

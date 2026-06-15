@@ -72,13 +72,13 @@ export default function Skills() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="grid lg:grid-cols-[0.8fr_1.2fr] gap-10 items-end mb-14"
+          className="section-heading mb-14"
         >
           <div>
-            <span className="section-label">Design Toolkit</span>
+            <span className="section-kicker">03 / Design Toolkit</span>
             <h2 className="section-title text-4xl md:text-5xl mt-3">Tools and skills with purpose.</h2>
           </div>
-          <p className="section-subtitle text-base max-w-2xl lg:ml-auto">
+          <p className="section-subtitle text-base max-w-md">
             These are the capabilities I use to move from messy ideas to usable interfaces: research, structure, visual design, prototyping, and responsive implementation awareness.
           </p>
         </motion.div>
@@ -94,7 +94,7 @@ export default function Skills() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.35 }}
-          className="mt-12 rounded-[1.75rem] bg-primary-dark text-white p-6 md:p-8 grid md:grid-cols-[0.8fr_1.2fr] gap-6 items-center"
+          className="mt-12 rounded-[1.75rem] bg-primary-dark text-white p-6 md:p-8 grid md:grid-cols-[0.8fr_1.2fr] gap-6 items-center shadow-premium"
         >
           <div>
             <p className="text-accent-cyan text-xs font-bold uppercase tracking-[0.18em] mb-3">Workflow</p>

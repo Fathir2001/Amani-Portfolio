@@ -1,121 +1,85 @@
 import { motion } from 'framer-motion'
-import { useInView } from 'framer-motion'
-import { useRef } from 'react'
-import { MdPalette, MdSchool, MdAutoAwesome, MdStorefront } from 'react-icons/md'
+import { MdAutoAwesome, MdPalette, MdSchool, MdStorefront } from 'react-icons/md'
 
 const highlights = [
-  { icon: <MdAutoAwesome size={18} />, label: 'Creative Designer', color: 'text-primary-purple bg-background-lavender' },
-  { icon: <MdPalette size={18} />, label: 'UI/UX Learner', color: 'text-accent-rose bg-pink-50' },
-  { icon: <MdSchool size={18} />, label: 'IT Undergraduate', color: 'text-primary-navy bg-blue-50' },
-  { icon: <MdStorefront size={18} />, label: 'Craft Business Founder', color: 'text-accent-gold bg-yellow-50' },
+  { icon: <MdAutoAwesome size={20} />, label: 'Creative Designer', text: 'Refined visuals with user-friendly structure.' },
+  { icon: <MdPalette size={20} />, label: 'UI/UX Learner', text: 'Growing through hands-on case studies.' },
+  { icon: <MdSchool size={20} />, label: 'IT Undergraduate', text: 'Studying technology and digital systems.' },
+  { icon: <MdStorefront size={20} />, label: 'Founder', text: 'Running a craft brand with design ownership.' },
 ]
-
-function FadeIn({ children, delay = 0 }) {
-  const ref = useRef(null)
-  const inView = useInView(ref, { once: true, margin: '-60px' })
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 30 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.65, delay, ease: 'easeOut' }}
-    >
-      {children}
-    </motion.div>
-  )
-}
 
 export default function About() {
   return (
-    <section id="about" className="py-28 bg-background-lavender relative overflow-hidden">
-      {/* Decorative blob */}
-      <div className="absolute top-0 right-0 w-72 h-72 rounded-full opacity-10 pointer-events-none"
-        style={{ background: 'radial-gradient(circle, #8B5CF6 0%, transparent 70%)', transform: 'translate(30%, -30%)' }} />
-
+    <section id="about" className="py-20 md:py-24 bg-background-main relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-5">
-        <FadeIn>
-          <div className="text-center mb-16">
-            <span className="section-label">✦ Who I Am</span>
-            <h2 className="section-title text-4xl md:text-5xl mt-3">About Me</h2>
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="grid lg:grid-cols-[0.72fr_1.28fr] gap-8 xl:gap-10 items-start"
+        >
+          <div className="lg:sticky lg:top-28">
+            <span className="section-kicker">04 / Profile</span>
+            <h2 className="section-title text-4xl md:text-5xl xl:text-[3.5rem] leading-[1.04] mt-3 max-w-md">
+              Calm, practical design process.
+            </h2>
+            <p className="section-subtitle mt-5 max-w-sm">
+              A compact look at my design focus, study path, and creative background.
+            </p>
           </div>
-        </FadeIn>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Left visual */}
-          <FadeIn delay={0.1}>
-            <div className="relative flex justify-center">
-              <div className="glass-card rounded-3xl p-8 max-w-sm w-full">
-                {/* Avatar */}
-                <div className="flex justify-center mb-6">
-                  <div className="relative">
-                    <div className="w-24 h-24 rounded-full bg-gradient-to-br from-primary-purple to-accent-rose flex items-center justify-center shadow-glass">
-                      <span className="text-white text-4xl font-bold font-display">A</span>
-                    </div>
-                    <span className="absolute -bottom-1 -right-1 w-7 h-7 rounded-full bg-accent-gold flex items-center justify-center text-white text-xs shadow">✦</span>
-                  </div>
+          <div className="space-y-5">
+            <div className="premium-panel p-6 md:p-7">
+              <div className="grid md:grid-cols-[auto_1fr] gap-6 items-start">
+                <div className="w-24 h-24 rounded-[1.5rem] bg-primary-dark text-white flex items-center justify-center shadow-premium">
+                  <span className="font-display text-4xl font-bold">A</span>
                 </div>
-                <h3 className="section-title text-xl text-center mb-1">Amani Dulfi</h3>
-                <p className="text-text-muted text-sm text-center mb-6">UI/UX Designer · Sri Lanka</p>
-
-                {/* Info rows */}
-                <div className="space-y-3">
-                  {[
-                    { label: 'Availability', value: 'Open to Work' },
-                    { label: 'Focus', value: 'UI/UX Design' },
-                    { label: 'Education', value: 'BSc IT (Ongoing)' },
-                    { label: 'Tools', value: 'Figma, Canva, XD' },
-                  ].map((item) => (
-                    <div key={item.label} className="flex justify-between items-center text-sm py-2 border-b border-border-soft last:border-0">
-                      <span className="text-text-muted font-medium">{item.label}</span>
-                      <span className="text-text-heading font-medium">{item.value}</span>
-                    </div>
-                  ))}
+                <div>
+                  <p className="text-text-body text-lg leading-relaxed">
+                    Creative and detail-oriented UI/UX Designer passionate about creating user-friendly and visually appealing digital experiences. Currently pursuing a BSc in Information Technology while building skills in research, wireframing, prototyping, and responsive design.
+                  </p>
+                  <p className="text-text-muted text-sm leading-relaxed mt-4">
+                    Every project is an opportunity to turn a rough idea into a clean journey: understand the user, simplify the flow, refine the interface, and make each screen feel intentional.
+                  </p>
                 </div>
               </div>
-
-              {/* Decorative dot pattern */}
-              <div className="absolute -top-6 -left-6 w-20 h-20 opacity-30 pointer-events-none"
-                style={{ backgroundImage: 'radial-gradient(circle, #8B5CF6 1px, transparent 1px)', backgroundSize: '8px 8px' }} />
             </div>
-          </FadeIn>
 
-          {/* Right text */}
-          <div className="space-y-6">
-            <FadeIn delay={0.2}>
-              <p className="text-text-body text-lg leading-relaxed">
-                Creative and detail-oriented UI/UX Designer passionate about creating user-friendly and visually appealing digital experiences. Currently pursuing a BSc in Information Technology and continuously developing skills in user research, wireframing, prototyping, and responsive design using tools such as Figma and Canva.
-              </p>
-            </FadeIn>
-
-            <FadeIn delay={0.3}>
-              <p className="text-text-body leading-relaxed">
-                Focused on delivering intuitive solutions that improve user experience and engagement. Every project is an opportunity to merge beautiful aesthetics with meaningful functionality.
-              </p>
-            </FadeIn>
-
-            {/* Highlight chips */}
-            <FadeIn delay={0.4}>
-              <div className="grid grid-cols-2 gap-3 pt-2">
-                {highlights.map((h) => (
-                  <div
-                    key={h.label}
-                    className={`flex items-center gap-3 px-4 py-3 rounded-2xl font-medium text-sm ${h.color} transition-transform hover:-translate-y-0.5 duration-200`}
-                  >
-                    {h.icon}
-                    {h.label}
+            <div className="grid sm:grid-cols-2 gap-4">
+              {highlights.map((item, index) => (
+                <motion.div
+                  key={item.label}
+                  initial={{ opacity: 0, y: 18 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.45, delay: index * 0.07 }}
+                  className="bg-white rounded-2xl border border-border-soft p-4 shadow-card"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-background-lavender text-primary-purple flex items-center justify-center mb-3">
+                    {item.icon}
                   </div>
-                ))}
-              </div>
-            </FadeIn>
+                  <h3 className="text-text-heading font-bold mb-1">{item.label}</h3>
+                  <p className="text-text-muted text-sm leading-relaxed">{item.text}</p>
+                </motion.div>
+              ))}
+            </div>
 
-            <FadeIn delay={0.5}>
-              <div className="flex gap-4 pt-2">
-                <a href="#projects" className="primary-btn px-6 py-3 text-sm">View My Work</a>
-                <a href="#contact" className="outline-btn px-6 py-3 text-sm">Get in Touch</a>
-              </div>
-            </FadeIn>
+            <div className="grid sm:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-border-soft border border-border-soft rounded-[1.5rem] overflow-hidden bg-white">
+              {[
+                { label: 'Availability', value: 'Open' },
+                { label: 'Focus', value: 'UI/UX' },
+                { label: 'Education', value: 'BSc IT' },
+                { label: 'Tools', value: 'Figma' },
+              ].map((item) => (
+                <div key={item.label} className="p-4">
+                  <p className="text-text-muted text-xs font-bold uppercase tracking-[0.14em]">{item.label}</p>
+                  <p className="section-title text-xl md:text-2xl mt-1">{item.value}</p>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

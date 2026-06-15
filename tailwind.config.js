@@ -60,6 +60,7 @@ export default {
         'glass-hover': '0 30px 80px rgba(139, 92, 246, 0.2)',
         card: '0 4px 24px rgba(139, 92, 246, 0.08)',
         'card-hover': '0 12px 40px rgba(139, 92, 246, 0.18)',
+        premium: '0 28px 90px rgba(31, 34, 51, 0.14)',
       },
     },
   },
