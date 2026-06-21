@@ -1231,6 +1231,21 @@ body::before {
     color: var(--color-primary-purple) !important;
   }
 
+  #skills .premium-panel,
+  #skills .premium-panel * {
+    text-shadow: none;
+  }
+
+  #skills .premium-panel {
+    background: rgba(255, 255, 255, 0.96);
+    border-color: rgba(139, 92, 246, 0.2);
+  }
+
+  #skills .premium-panel .section-subtitle,
+  #skills .premium-panel p {
+    color: var(--color-text-body) !important;
+  }
+
   .experience-mini-icon {
     color: var(--color-primary-purple);
     transition: transform 0.25s ease;
