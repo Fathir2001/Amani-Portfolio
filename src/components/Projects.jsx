@@ -110,7 +110,7 @@ export default function Projects() {
   const [featured, ...supporting] = projects
 
   return (
-    <section id="projects" className="section-band py-28 md:py-32 relative overflow-hidden">
+    <section id="projects" className="dark-glass-section zigzag-section zigzag-right py-28 md:py-32 relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-5">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

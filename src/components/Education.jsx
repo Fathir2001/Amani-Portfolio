@@ -4,7 +4,7 @@ import { education } from '../data/portfolioData'
 
 export default function Education() {
   return (
-    <section id="education" className="py-28 designed-section relative overflow-hidden">
+    <section id="education" className="py-28 dark-glass-section zigzag-section zigzag-left relative overflow-hidden">
       <div className="max-w-5xl mx-auto px-5">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

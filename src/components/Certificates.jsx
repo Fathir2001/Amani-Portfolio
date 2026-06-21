@@ -13,7 +13,7 @@ const credentialAccents = [
 
 export default function Certificates() {
   return (
-    <section id="certificates" className="section-band py-28 relative overflow-hidden">
+    <section id="certificates" className="dark-glass-section zigzag-section zigzag-right py-28 relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-5">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

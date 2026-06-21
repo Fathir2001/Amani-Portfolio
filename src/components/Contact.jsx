@@ -31,7 +31,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-28 md:py-32 designed-section relative overflow-hidden">
+    <section id="contact" className="py-28 md:py-32 dark-glass-section zigzag-section zigzag-left relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-5">
         <motion.div
           initial={{ opacity: 0, y: 24 }}

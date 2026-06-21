@@ -18,7 +18,7 @@ const languageAccents = {
 
 export default function Languages() {
   return (
-    <section id="languages" className="section-band py-24 relative overflow-hidden">
+    <section id="languages" className="dark-glass-section zigzag-section zigzag-right py-24 relative overflow-hidden">
       <div className="ambient-lines opacity-50" />
       <div className="max-w-4xl mx-auto px-5">
         <motion.div

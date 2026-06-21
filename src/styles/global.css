@@ -244,6 +244,175 @@ body::before {
   background-size: auto, auto, 52px 52px, 52px 52px, auto, auto;
 }
 
+.zigzag-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.zigzag-section > * {
+  position: relative;
+  z-index: 2;
+}
+
+.zigzag-section {
+  --zig-shadow-rotate: calc(var(--section-band-rotate, 6deg) * -1);
+}
+
+.zigzag-section::before,
+.zigzag-section::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.zigzag-section::before {
+  left: -14%;
+  width: 128%;
+  height: 12rem;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  background:
+    linear-gradient(90deg, rgba(255,255,255,0.18), rgba(255,255,255,0.72), rgba(255,255,255,0.16)),
+    linear-gradient(135deg, rgba(139,92,246,0.16), rgba(94,223,255,0.14), rgba(255,125,170,0.1));
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.6),
+    inset 0 -1px 0 rgba(139,92,246,0.18),
+    0 26px 90px rgba(31, 34, 51, 0.09);
+  animation: sectionBandDrift 13s ease-in-out infinite;
+}
+
+.zigzag-section::after {
+  inset: 0;
+  background:
+    radial-gradient(circle at var(--zig-glow-x, 18%) 18%, rgba(139, 92, 246, 0.18), transparent 26%),
+    radial-gradient(circle at var(--zig-glow-y, 82%) 72%, rgba(94, 223, 255, 0.14), transparent 28%),
+    radial-gradient(circle at 50% 50%, rgba(255, 125, 170, 0.08), transparent 34%),
+    linear-gradient(90deg, rgba(31, 34, 51, 0.025) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(31, 34, 51, 0.022) 1px, transparent 1px);
+  background-size: auto, auto, auto, 56px 56px, 56px 56px;
+  mask-image: linear-gradient(180deg, transparent, black 12%, black 88%, transparent);
+}
+
+.zigzag-left::before {
+  top: 10%;
+  transform: rotate(-7deg);
+  --section-band-rotate: -7deg;
+}
+
+.zigzag-right::before {
+  top: 14%;
+  transform: rotate(7deg);
+  --section-band-rotate: 7deg;
+  animation-delay: -4s;
+}
+
+.zigzag-left {
+  --zig-glow-x: 14%;
+  --zig-glow-y: 86%;
+}
+
+.zigzag-right {
+  --zig-glow-x: 86%;
+  --zig-glow-y: 14%;
+}
+
+.zigzag-deep::before {
+  border-color: rgba(255, 255, 255, 0.1);
+  background:
+    linear-gradient(90deg, rgba(255,255,255,0.035), rgba(255,255,255,0.13), rgba(255,255,255,0.035)),
+    linear-gradient(135deg, rgba(139,92,246,0.14), rgba(94,223,255,0.08));
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.16);
+}
+
+.dark-glass-section {
+  background:
+    linear-gradient(90deg, rgba(17, 19, 32, 0.92) 0%, rgba(31, 34, 51, 0.84) 48%, rgba(17, 24, 39, 0.9) 100%),
+    radial-gradient(circle at var(--zig-glow-x, 18%) 18%, rgba(139, 92, 246, 0.32), transparent 27%),
+    radial-gradient(circle at var(--zig-glow-y, 82%) 70%, rgba(94, 223, 255, 0.22), transparent 30%),
+    linear-gradient(135deg, #111320 0%, #1F2233 48%, #151827 100%);
+}
+
+.dark-glass-section::before {
+  border-color: rgba(255, 255, 255, 0.12);
+  background:
+    linear-gradient(90deg, rgba(255,255,255,0.035), rgba(255,255,255,0.15), rgba(255,255,255,0.035)),
+    linear-gradient(135deg, rgba(139,92,246,0.18), rgba(94,223,255,0.12), rgba(255,125,170,0.08));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.18),
+    0 30px 95px rgba(0, 0, 0, 0.18);
+}
+
+.dark-glass-section::after {
+  background:
+    radial-gradient(circle at var(--zig-glow-x, 18%) 18%, rgba(139, 92, 246, 0.24), transparent 28%),
+    radial-gradient(circle at var(--zig-glow-y, 82%) 72%, rgba(94, 223, 255, 0.18), transparent 30%),
+    radial-gradient(circle at 50% 50%, rgba(255, 125, 170, 0.1), transparent 36%),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: auto, auto, auto, 56px 56px, 56px 56px;
+}
+
+.dark-glass-section .section-kicker {
+  color: #7DEBFF;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+}
+
+.dark-glass-section .section-label {
+  color: #7DEBFF;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+}
+
+.dark-glass-section .section-heading > div > .section-title,
+.dark-glass-section .section-heading > .section-title,
+.dark-glass-section > div > div > div:first-child > .section-title {
+  color: #ffffff;
+}
+
+.dark-glass-section .section-heading .section-subtitle,
+.dark-glass-section > div > div > div:first-child > .section-subtitle {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.dark-glass-section > div > div > div:first-child p:not(.section-title):not(.section-kicker) {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.dark-glass-section .premium-panel {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.dark-glass-section .section-heading::before {
+  background: linear-gradient(90deg, transparent, rgba(94, 223, 255, 0.18), rgba(139, 92, 246, 0.18), transparent);
+  opacity: 1;
+}
+
+.zigzag-section .section-heading::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  left: -12%;
+  right: -12%;
+  top: -2.5rem;
+  height: 7rem;
+  pointer-events: none;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.12), rgba(94, 223, 255, 0.1), transparent);
+  filter: blur(16px);
+  transform: rotate(var(--zig-shadow-rotate));
+  opacity: 0.85;
+}
+
+.zigzag-section .section-heading,
+.zigzag-section .max-w-4xl,
+.zigzag-section .max-w-5xl,
+.zigzag-section .max-w-6xl {
+  position: relative;
+  z-index: 2;
+}
+
 .ambient-lines {
   position: absolute;
   inset: 0;
@@ -1263,6 +1432,16 @@ body::before {
   }
   50% {
     transform: translate3d(2.5rem, -0.7rem, 0) rotate(calc(var(--band-rotate) + 1deg));
+  }
+}
+
+@keyframes sectionBandDrift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(var(--section-band-rotate));
+  }
+  50% {
+    transform: translate3d(1.8rem, -0.45rem, 0) rotate(calc(var(--section-band-rotate) * 0.88));
   }
 }
 

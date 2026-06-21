@@ -83,7 +83,7 @@ function SkillTile({ skill, index }) {
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-28 designed-section relative overflow-hidden">
+    <section id="skills" className="py-28 dark-glass-section zigzag-section zigzag-left relative overflow-hidden">
       <div className="ambient-lines opacity-60" />
       <div className="max-w-6xl mx-auto px-5">
         <motion.div

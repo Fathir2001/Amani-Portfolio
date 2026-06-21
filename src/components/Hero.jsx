@@ -35,7 +35,7 @@ export default function Hero() {
             >
               <span className="text-accent-cyan text-xs font-bold tracking-[0.2em] uppercase">01 / Portfolio</span>
               <span className="h-px flex-1 max-w-32 bg-white/20" />
-              <span className="text-white/82 text-xs font-semibold uppercase tracking-[0.16em]">Sri Lanka</span>
+              <span className="text-white text-xs font-bold uppercase tracking-[0.16em] drop-shadow-[0_2px_10px_rgba(0,0,0,0.4)]">Sri Lanka</span>
             </motion.div>
 
             <motion.h1
@@ -71,7 +71,7 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.75, delay: 0.45 }}
-              className="mt-9 grid grid-cols-3 divide-x divide-white/10 border-y border-white/10 max-w-xl"
+              className="mt-9 grid grid-cols-3 divide-x divide-white/16 border-y border-white/18 max-w-xl bg-primary-dark/18 backdrop-blur-sm"
             >
               {[
                 { value: '03', label: 'Selected projects' },
@@ -80,7 +80,7 @@ export default function Hero() {
               ].map((item) => (
                 <div key={item.label} className="py-4 px-4 first:pl-0">
                   <p className="section-title text-2xl md:text-3xl text-white">{item.value}</p>
-                  <p className="text-white/76 text-xs font-semibold uppercase tracking-[0.12em] mt-1">{item.label}</p>
+                  <p className="text-white text-xs font-bold uppercase tracking-[0.12em] mt-1 drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)]">{item.label}</p>
                 </div>
               ))}
             </motion.div>
