@@ -376,10 +376,6 @@ body::before {
   color: rgba(255, 255, 255, 0.72);
 }
 
-.dark-glass-section > div > div > div:first-child p:not(.section-title):not(.section-kicker) {
-  color: rgba(255, 255, 255, 0.72);
-}
-
 .dark-glass-section .premium-panel {
   background: rgba(255, 255, 255, 0.9);
 }
@@ -1100,6 +1096,31 @@ body::before {
     box-shadow: 0 26px 86px rgba(31, 34, 51, 0.11);
   }
 
+  .dark-glass-section .experience-card .section-title,
+  .experience-card .section-title {
+    color: var(--color-text-heading);
+  }
+
+  .dark-glass-section .experience-card p,
+  .experience-card p {
+    color: var(--color-text-body);
+  }
+
+  .dark-glass-section .experience-card .text-text-muted,
+  .experience-card .text-text-muted {
+    color: var(--color-text-muted);
+  }
+
+  .dark-glass-section .experience-card .text-text-heading,
+  .experience-card .text-text-heading {
+    color: var(--color-text-heading);
+  }
+
+  .dark-glass-section .experience-card .text-primary-purple,
+  .experience-card .text-primary-purple {
+    color: var(--color-primary-purple);
+  }
+
   .experience-badge {
     color: var(--color-primary-purple);
     background: rgba(243, 240, 255, 0.9);
@@ -1111,7 +1132,7 @@ body::before {
   }
 
   .experience-metric-row > div {
-    background: rgba(255,255,255,0.72);
+    background: rgba(255,255,255,0.92);
     border: 1px solid rgba(139, 92, 246, 0.13);
     transition: transform 0.25s ease, background 0.25s ease;
   }
@@ -1157,10 +1178,57 @@ body::before {
   .experience-mini-card {
     position: relative;
     min-height: 5.4rem;
-    background: rgba(255,255,255,0.9);
+    background: rgba(255,255,255,0.96);
     border: 1px solid rgba(255,255,255,0.5);
     box-shadow: 0 16px 34px rgba(31,34,51,0.13);
     animation: miniFloat 5s ease-in-out infinite;
+  }
+
+  .dark-glass-section .experience-mini-card p,
+  .experience-mini-card p {
+    color: var(--color-text-heading);
+  }
+
+  .dark-glass-section .experience-mini-card p:last-child,
+  .experience-mini-card p:last-child {
+    color: var(--color-text-muted);
+  }
+
+  #experience .experience-card,
+  #experience .experience-card * {
+    text-shadow: none;
+  }
+
+  #experience .experience-card .section-title,
+  #experience .experience-card h3 {
+    color: var(--color-text-heading) !important;
+  }
+
+  #experience .experience-card p,
+  #experience .experience-card span:not(.experience-badge):not(.experience-mini-icon) {
+    color: var(--color-text-body) !important;
+  }
+
+  #experience .experience-card .text-text-muted,
+  #experience .experience-card p.text-text-muted,
+  #experience .experience-card .experience-mini-card p:last-child {
+    color: var(--color-text-muted) !important;
+  }
+
+  #experience .experience-card .text-text-heading,
+  #experience .experience-card .experience-mini-card p:first-child,
+  #experience .experience-card .experience-metric-row p {
+    color: var(--color-text-heading) !important;
+  }
+
+  #experience .experience-card .text-primary-purple,
+  #experience .experience-card .experience-metric-row span,
+  #experience .experience-card .experience-mini-icon {
+    color: var(--color-primary-purple) !important;
+  }
+
+  #experience .experience-badge {
+    color: var(--color-primary-purple) !important;
   }
 
   .experience-mini-icon {
